@@ -1,1 +1,7 @@
 # Handling-Out-of-Vocabulary-Words-in-Natural-Language-Processing-using-Language-Modelling
+Word Embeddings encode the relationships between words through vector representations of the words. These word vectors are analogous to the meaning of the word. A limitation of word embeddings are that, they are learned by the Natural Language Model (word2vec, GloVe and the like) and therefore words must have been seen in the training data before, in order to have an embedding.
+
+This articles provides an approach that can be used to handle out-of-vocabulary(OOV) words in natural language processing. Given an OOV word and the sentence it is in, language modelling is used to sequence words in the sentence and predict the meaning of the word by comparison with similar sentences. This is an elegant way of learning word meanings on the fly.
+
+# Overview of Model
+The model is built to produce embeddings for Out-of-Vocabulary(OOV) words depending on the OOV word’s context. This is done using language model built using a Bi-directional Recurrent Neural Network with a Long-Short Term Memory cell. This language model is used for predicting the most probable word embedding for the OOV word based on its context, by predicting words in place of the OOV word and then taking a weighted average of their mapped word embeddings. This gives a word embedding for the OOV word which is reliable in terms of usability for entity recognition tasks and a meaningful representation for it in the vector space.
